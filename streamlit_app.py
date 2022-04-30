@@ -1,3 +1,3 @@
-import pandas
+import streamlit
 
-print('osman')
+streamlit.title('My Parents Now Healthy Diners')
