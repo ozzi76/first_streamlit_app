@@ -7,4 +7,7 @@ streamlit.header('My Fruits')
 
 fruits_selected = streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index), ['Avocado','Strawberries'])
 
-streamlit.dataframe(my_fruit_list.loc[fruits_selected])
+if len(my_fruit_list.loc[fruits_selected]) > 0;
+  streamlit.dataframe(my_fruit_list.loc[fruits_selected])
+else:
+  streamlit.dataframe(my_fruit_list)
