@@ -32,6 +32,6 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list includes:")
 streamlit.dataframe(my_data_rows)
 
-add_my_fruit = streamlit.input_text('Please add a new fruit :')
+add_my_fruit = streamlit.input_text('Please add a new fruit :', 'elma')
 
 my_data_rows = my_data_rows.append(add_my_fruit)
