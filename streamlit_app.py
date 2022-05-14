@@ -9,10 +9,13 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 streamlit.header('My Fruits')
 
 fruits_selected = streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index), ['Avocado','Strawberries'])
-
-
 streamlit.dataframe(my_fruit_list.loc[fruits_selected])
 
+def get_fruityvice_data(this_fruit_choice):
+  fruityvice_response = requests.get('https://fruityvice.com/api/fruit/' + fruit_choice)
+  fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+  return fruityvice_normalized
+  
 streamlit.header('Fruityvice Fruit Advice')
 
 try:
@@ -24,9 +27,8 @@ try:
     
 # import requests
 
-    fruityvice_response = requests.get('https://fruityvice.com/api/fruit/' + fruit_choice)
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-    streamlit.dataframe(fruityvice_normalized)
+  back_from_function = get_fruityvice_data(fruit_choice)
+  streamlit.dataframe(back_from_function)
 
 except URLError as e:
   streamlit.error()
