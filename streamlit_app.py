@@ -32,7 +32,7 @@ my_data_rows = my_cur.fetchall()
 my_data_rows.rename(columns={0:'fruit'}, inplace=True)
 streamlit.header("The fruit load list includes:")
 streamlit.dataframe(my_data_rows)
-
+streamlit.write(type(add_my_fruit))
 add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
 my_data_rows = my_data_rows.append(pd.DataFrame({'fruit':add_my_fruit}, ignore_index=True)
 streamlit.dataframe(my_data_rows)
