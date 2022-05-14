@@ -37,6 +37,7 @@ add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfr
 # streamlit.dataframe(my_data_rows)
 
 streamlit.write(type(add_my_fruit))
+streamlit.write(add_my_fruit)
 
 # my_data_rows = my_data_rows.append(add_my_fruit, ignore_index=True)
 # streamlit.dataframe(my_data_rows)
